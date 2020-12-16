@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: provider-demo
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.91.11:8848
+        metadata:
+          content: /
+          preserved:
+            register:
+              source: SPRING_CLOUD
+server:
+  port: 6161
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    metrics:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: INFO
+        web: INFO
+      hibernate: INFO
+      apache:
+        commons:
+          dbcp2: INFO
+  file: /var/log/provider/demo.log
